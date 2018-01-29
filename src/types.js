@@ -65,3 +65,9 @@ exports.troy = new Type('Troy', {
   pattern: /^9792\d{12}$/,
   eagerPattern: /^9792/
 })
+
+exports.uatp = new Type('UATP', {
+  pattern: /^1\d{14}$/,
+  eagerPattern: /^1/,
+  groupPattern: /(1\d{3})(\d{1,5})?(\d{1,6})?/
+})

@@ -196,6 +196,13 @@ test('UnionPay', function (t) {
   t.end()
 })
 
+test('UATP', function (t) {
+  var uatp = types.uatp
+  t.ok(uatp.test('133967090381500'), 'normal')
+  eagerType(t, uatp, '13')
+  t.end()
+})
+
 test('find', function (t) {
   var visa = find(function (type) {
     return type.name === 'Visa'

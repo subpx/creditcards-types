@@ -200,6 +200,17 @@ test('UATP', function (t) {
   var uatp = types.uatp
   t.ok(uatp.test('133967090381500'), 'normal')
   eagerType(t, uatp, '13')
+  t.test('Grouping', function (t) {
+    t.deepEqual(uatp.group('133967090381500'), [
+      '1339',
+      '67090',
+      '381500'
+    ], 'full number')
+    t.deepEqual(uatp.group('1'), ['1'], 'partial number')
+    t.deepEqual(uatp.group('133967'), ['1339', '67'], 'partial group')
+    t.deepEqual(uatp.group(''), [], 'no valid groups')
+    t.end()
+  })
   t.end()
 })
 
